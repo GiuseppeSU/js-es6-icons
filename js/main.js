@@ -117,6 +117,7 @@ const icons = [
 const imageContainertDom = document.querySelector('#cards');
 let sliderContent = "";
 for (let i = 0; i < icons.length; i++) {
+    icons[i].color = generaColore(0 , 16)
     const newIcon = `<div class="card">
                         <i class ="${icons[i].family} ${icons[i].prefix}${icons[i].name}" style='color:${icons[i].color}'></i>
                         <p class ='text'>${icons[i].name}</p>
@@ -153,3 +154,28 @@ sliderContent += newIcon;
 imageContainertDom.innerHTML = sliderContent;
 
 })
+
+
+
+function generaColore(min , max){
+    let colore = '#';
+    for (let i = 0; i < 6; i++){
+        const numero = Math.floor(Math.random()*(max - min) + min);
+        if (numero > 9){
+            if (numero == 10) colore += 'A';
+            if (numero == 11) colore += 'B';
+            if (numero == 12) colore += 'C';
+            if (numero == 13) colore += 'D';
+            if (numero == 14) colore += 'E';
+            if (numero == 15) colore += 'F';
+        }else{
+            colore += numero;
+        }
+        
+    }
+
+    return colore
+
+}
+
+
