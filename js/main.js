@@ -118,7 +118,7 @@ const imageContainertDom = document.querySelector('#cards');
 let sliderContent = "";
 for (let i = 0; i < icons.length; i++) {
     const newIcon = `<div class="card">
-                        <i class ="${icons[i].family} ${icons[i].prefix}${icons[i].name}"></i>
+                        <i class ="${icons[i].family} ${icons[i].prefix}${icons[i].name}" style='color:${icons[i].color}'></i>
                         <p class ='text'>${icons[i].name}</p>
                                 
                                 
