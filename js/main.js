@@ -120,13 +120,36 @@ for (let i = 0; i < icons.length; i++) {
     const newIcon = `<div class="card">
                         <i class ="${icons[i].family} ${icons[i].prefix}${icons[i].name}" style='color:${icons[i].color}'></i>
                         <p class ='text'>${icons[i].name}</p>
-                                
-                                
-                                
-                            </div>`;
+                        </div>`;
 
 sliderContent += newIcon;       
    
 }
-
 imageContainertDom.innerHTML = sliderContent;
+
+const select = document.getElementById('seleziona');
+select.addEventListener('click' ,function(){
+    let option = select.value;
+    let filterIcons=[];
+    if (option == 'all'){
+        filterIcons = icons;
+
+    }else{
+        filterIcons = icons.filter((icon) => icon.type == option )
+        
+    }
+    
+    const imageContainertDom = document.querySelector('#cards');
+let sliderContent = "";
+for (let i = 0; i < filterIcons.length; i++) {
+    const newIcon = `<div class="card">
+                        <i class ="${filterIcons[i].family} ${filterIcons[i].prefix}${filterIcons[i].name}" style='color:${filterIcons[i].color}'></i>
+                        <p class ='text'>${filterIcons[i].name}</p>
+                        </div>`;
+
+sliderContent += newIcon;       
+   
+}
+imageContainertDom.innerHTML = sliderContent;
+
+})
